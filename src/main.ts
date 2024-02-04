@@ -1,12 +1,17 @@
 import { createApp } from 'vue'
+import '@/styles/index.scss'
 import App from './App.vue'
+import ElementPlus from 'element-plus'
+import router from './router'
+import 'normalize.css'
+import 'element-plus/dist/index.css'
+import { zhCn } from 'element-plus/es/locales.mjs'
 
-createApp(App).mount('#app')
+const app = createApp(App)
 
-/** TODO:
- * 1. 添加 vitest finish
- * 2. 引入 element-plus finish
- * 3. 配置 husky / format / editor 等
- * 4. 删除原文件 finish
- * 5. init layout
- */
+app.use(ElementPlus, {
+  locale: zhCn,
+})
+
+app.use(router)
+app.mount('#app')
